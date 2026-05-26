@@ -154,10 +154,10 @@ def marcar_util():
         return jsonify({"error": "Ya votaste esta reseña"}), 409
 
     votos.insert_one({
-        "resena_id":  resena_id,
-        "cliente_id": cliente_id,
-        "fecha_voto": datetime.utcnow().strftime("%Y-%m-%d")
-    })
+    "resena_id":  resena_id,
+    "usuario_id": cliente_id,
+    "fecha_voto": datetime.utcnow().strftime("%Y-%m-%d")
+})
     reviews.update_one({"_id": ObjectId(resena_id)}, {"$inc": {"total_utilidad": 1}})
     return jsonify({"mensaje": "Voto registrado"}), 201
 
