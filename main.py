@@ -53,7 +53,7 @@ def crear_resena():
         "estado":         "publicada",
         "total_utilidad": 0,
         "destacada":      False,
-        "respuesta_admin": None
+        "respuesta_admin": {}
     }
     result = reviews.insert_one(nueva)
     return jsonify({"mensaje": "Reseña creada", "id": str(result.inserted_id)}), 201
